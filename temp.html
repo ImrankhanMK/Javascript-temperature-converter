@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="icon" type="image/x-icon" href="icon.jpg">
+    <style>
+        body{
+            background-image: url('image2.jpg') ;
+            background-size: cover;
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            color: white;
+        }
+        #container{
+            text-align: center;
+            background-image: url('image2.jpg');
+            background-size:cover;
+            padding: 50px;
+            color: white;
+            font-weight: bold;
+        }
+        .input{
+            display: inline-block;
+        }
+        .inp{
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;   
+            width: 70%;
+        }
+        label{
+            font-size: 22px;
+            /*color: red;*/
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+        <div class="input">
+            <label>Celsius</label><br>
+            <input type="number" value="0" id="cel" class="inp">        
+        </div>
+        <div class="input">
+            <label>Fahrenhiet</label><br>
+            <input type="number"  value="32" id="frn" class="inp">
+        </div>
+    </div>
+    <script>
+        let one=document.getElementById("cel");
+        let two=document.getElementById("frn");
+        one.addEventListener('input', function(){
+            let a=this.value;
+            let b=(a* 9/5)+32;
+            if (!Number.isInteger(b)){
+                b=b.toFixed(4);
+            }
+            two.value=b;
+        });
+        two.addEventListener('input', function(){
+            let c=this.value;
+            let d=(c-32)*5/9;
+            if (!Number.isInteger(d)){
+                d=d.toFixed(4);
+            }
+            one.value=d;
+        });
+    </script>
+</body>
+</html>
